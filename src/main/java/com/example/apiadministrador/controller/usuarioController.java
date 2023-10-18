@@ -38,13 +38,13 @@ public class usuarioController {
     }
 
 
-    @PostMapping("/guardar")
+    @PostMapping
     public ResponseEntity<Usuarios> guardarUsuario(@RequestBody Usuarios usuarios){
         Usuarios usuarioNuevo = usuarioService.save(usuarios);
         return  new ResponseEntity<>(usuarioNuevo, HttpStatus.CREATED);
     }
 
-    @PutMapping("/editar")
+    @PutMapping
     public ResponseEntity<Usuarios> editarUsuario(@RequestBody Usuarios usuarios){
         Usuarios usuarioNuevo = usuarioService.save(usuarios);
         return  new ResponseEntity<>(usuarioNuevo, HttpStatus.CREATED);
