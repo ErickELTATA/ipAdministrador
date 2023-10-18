@@ -50,7 +50,7 @@ public class usuarioController {
         return  new ResponseEntity<>(usuarioNuevo, HttpStatus.CREATED);
     }
 
-    @DeleteMapping("/borrar/{id}")
+    @DeleteMapping("/{id}")
     public ResponseEntity<?> eliminarUsuario(@PathVariable Integer id){
         try {
             usuarioService.delete(id);
