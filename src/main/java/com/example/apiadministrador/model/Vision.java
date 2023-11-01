@@ -1,5 +1,6 @@
 package com.example.apiadministrador.model;
 
+
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -8,11 +9,11 @@ import lombok.NoArgsConstructor;
 import java.util.Date;
 
 @Entity
-@Table(name = "mision")
+@Table(name = "vision")
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class Mision {
+public class Vision {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -23,6 +24,5 @@ public class Mision {
 
     @Column(name = "Fecha")
     private Date Fecha;
-
 
 }

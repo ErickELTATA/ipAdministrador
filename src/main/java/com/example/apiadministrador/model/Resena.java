@@ -18,10 +18,12 @@ public class Resena{
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer Id;
 
+    @Column(name = "contenido")
+    private String Contenido;
+
+
     @Column(name = "Fecha")
     private Date Fecha;
 
-    @Column(name = "contenido")
-    private String Contenido;
 
 }

@@ -8,11 +8,11 @@ import lombok.NoArgsConstructor;
 import java.util.Date;
 
 @Entity
-@Table(name = "mision")
+@Table(name = "politicaConfidencialidad")
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class Mision {
+public class PoliticaConfidencialidad {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -23,6 +23,5 @@ public class Mision {
 
     @Column(name = "Fecha")
     private Date Fecha;
-
 
 }
