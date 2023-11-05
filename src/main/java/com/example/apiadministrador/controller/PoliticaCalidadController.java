@@ -12,29 +12,30 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
+@CrossOrigin(origins = "http://localhost:5173")
 @RestController
-@RequestMapping("/api/politicacalidad")
+@RequestMapping("/api/pocalidad")
 public class PoliticaCalidadController {
 
     @Autowired
-    private PoliticaCalidadService misionService;
+    private PoliticaCalidadService politicaCalidadService;
 
     @GetMapping
-    public ResponseEntity<List<PoliticaCalidad>> listarmision(){
+    public ResponseEntity<List<PoliticaCalidad>> listar(){
 
-        List<PoliticaCalidad> mision = misionService.listAll();
+        List<PoliticaCalidad> pocalidad = politicaCalidadService.listAll();
 
-        if(mision.isEmpty()){
+        if(pocalidad.isEmpty()){
             return ResponseEntity.noContent().build();
         }
-        return new ResponseEntity<>(mision, HttpStatus.OK);
+        return new ResponseEntity<>(pocalidad, HttpStatus.OK);
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<PoliticaCalidad> listarmision(@PathVariable Integer id){
+    public ResponseEntity<PoliticaCalidad> listar(@PathVariable Integer id){
         try{
-            PoliticaCalidad mision = misionService.get(id);
-            return new ResponseEntity<>(mision,HttpStatus.OK);
+            PoliticaCalidad poCalidad = politicaCalidadService.get(id);
+            return new ResponseEntity<>(poCalidad,HttpStatus.OK);
         }catch (Exception exception){
             return ResponseEntity.notFound().build();
         }
@@ -42,21 +43,21 @@ public class PoliticaCalidadController {
 
 
     @PostMapping("/register")
-    public ResponseEntity<PoliticaCalidad> guardarmision(@RequestBody PoliticaCalidad mision){
-        PoliticaCalidad misionNuevo = misionService.save(mision);
-        return  new ResponseEntity<>(misionNuevo, HttpStatus.CREATED);
+    public ResponseEntity<PoliticaCalidad> guardar(@RequestBody PoliticaCalidad politicaCalidad){
+        PoliticaCalidad Nuevo = politicaCalidadService.save(politicaCalidad);
+        return  new ResponseEntity<>(Nuevo, HttpStatus.CREATED);
     }
 
     @PutMapping
-    public ResponseEntity<PoliticaCalidad> editarmision(@RequestBody PoliticaCalidad mision){
-        PoliticaCalidad misionNuevo = misionService.save(mision);
-        return  new ResponseEntity<>(misionNuevo, HttpStatus.CREATED);
+    public ResponseEntity<PoliticaCalidad> editar(@RequestBody PoliticaCalidad politicaCalidad){
+        PoliticaCalidad Nuevo = politicaCalidadService.save(politicaCalidad);
+        return  new ResponseEntity<>(Nuevo, HttpStatus.CREATED);
     }
 
     @DeleteMapping("/{id}")
-    public ResponseEntity<?> eliminarMision(@PathVariable Integer id){
+    public ResponseEntity<?> eliminar(@PathVariable Integer id){
         try {
-            misionService.delete(id);
+            politicaCalidadService.delete(id);
             return ResponseEntity.noContent().build();
         }catch (Exception exception){
             return ResponseEntity.notFound().build();

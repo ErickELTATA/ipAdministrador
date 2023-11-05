@@ -2,6 +2,7 @@ package com.example.apiadministrador.service;
 
 
 import com.example.apiadministrador.model.PoliticaConfidencialidad;
+import com.example.apiadministrador.repository.PoliticaConfidencialidadRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -12,7 +13,7 @@ public class PoliticaConfidencialidadService {
 
 
     @Autowired
-    private com.example.apiadministrador.repository.PoliticaConfidencialidadRepository misionRepository;
+    private PoliticaConfidencialidadRepository misionRepository;
 
     public List<PoliticaConfidencialidad> listAll(){
 

@@ -7,12 +7,13 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+@CrossOrigin(origins = "http://localhost:5173")
 @RestController
-@RequestMapping("/api/politicaconfidencialidad")
+@RequestMapping("/api/poconfi")
 public class PoliticaConfidencialiadadController {
 
     @Autowired
-    private PoliticaConfidencialidadService misionService;
+    private PoliticaConfidencialidadService politicaConfidencialidadService;
 
     /*
     @GetMapping
@@ -39,7 +40,7 @@ public class PoliticaConfidencialiadadController {
 */
     @PostMapping("/register")
     public ResponseEntity<PoliticaConfidencialidad> guardarmision(@RequestBody PoliticaConfidencialidad mision){
-        PoliticaConfidencialidad misionNuevo = misionService.save(mision);
+        PoliticaConfidencialidad misionNuevo = politicaConfidencialidadService.save(mision);
         return  new ResponseEntity<>(misionNuevo, HttpStatus.CREATED);
     }
 /*
