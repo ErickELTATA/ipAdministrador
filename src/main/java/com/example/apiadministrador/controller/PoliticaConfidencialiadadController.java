@@ -7,6 +7,8 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 @CrossOrigin(origins = "http://localhost:5173")
 @RestController
 @RequestMapping("/api/poconfi")
@@ -15,29 +17,29 @@ public class PoliticaConfidencialiadadController {
     @Autowired
     private PoliticaConfidencialidadService politicaConfidencialidadService;
 
-    /*
-    @GetMapping
-    public ResponseEntity<List<Mision>> listarmision(){
 
-        List<Mision> mision = misionService.listAll();
+    @GetMapping
+    public ResponseEntity<List<PoliticaConfidencialidad>> listarmision(){
+
+        List<PoliticaConfidencialidad> mision = politicaConfidencialidadService.listAll();
 
         if(mision.isEmpty()){
             return ResponseEntity.noContent().build();
         }
         return new ResponseEntity<>(mision, HttpStatus.OK);
     }
-
-    @GetMapping("/{id}")
-    public ResponseEntity<Mision> listarmision(@PathVariable Integer id){
-        try{
-            Mision mision = misionService.get(id);
-            return new ResponseEntity<>(mision,HttpStatus.OK);
-        }catch (Exception exception){
-            return ResponseEntity.notFound().build();
+    /*
+        @GetMapping("/{id}")
+        public ResponseEntity<Mision> listarmision(@PathVariable Integer id){
+            try{
+                Mision mision = misionService.get(id);
+                return new ResponseEntity<>(mision,HttpStatus.OK);
+            }catch (Exception exception){
+                return ResponseEntity.notFound().build();
+            }
         }
-    }
 
-*/
+    */
     @PostMapping("/register")
     public ResponseEntity<PoliticaConfidencialidad> guardarmision(@RequestBody PoliticaConfidencialidad mision){
         PoliticaConfidencialidad misionNuevo = politicaConfidencialidadService.save(mision);
