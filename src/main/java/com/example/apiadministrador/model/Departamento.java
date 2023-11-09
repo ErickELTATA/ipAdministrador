@@ -18,6 +18,6 @@ public class Departamento {
     @Column(name = "nombreDepartamento")
     private String nombreDepartamento;
 
-    @Column(name = "descripcionDepartamento")
+    @Column(name = "descripcionDepartamento", length = 2500)
     private String descripcionDepartamento;
 }

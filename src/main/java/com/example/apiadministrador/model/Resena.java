@@ -18,7 +18,7 @@ public class Resena{
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer Id;
 
-    @Column(name = "contenido")
+    @Column(name = "contenido",length=2500)
     private String Contenido;
 
 
